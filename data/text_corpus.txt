@@ -1,0 +1,22 @@
+Dear Class,
+
+As we approach the deadline for your project submissions, I’d like to take a moment to clarify some important guidelines to ensure your work meets the expectations for this course.
+
+1. Attribution and Citation
+If you use external sources—whether they are prompts, techniques, or ideas—it is essential to properly cite them. This includes any material from online forums (e.g., Reddit), research papers, blogs, or other platforms. Clear attribution not only demonstrates academic integrity but also helps contextualize your work within the broader field of computer security.
+
+2. Creativity and Originality
+While it’s acceptable to draw inspiration from existing methods or demonstrations, I encourage you to bring your own creativity and perspective into your project. Avoid simply replicating an exploit or technique; instead, think critically about how you can adapt, extend, or innovate upon it. Your project should reflect your unique understanding of the security issue and its implications.
+
+3. Ethical Considerations
+As we study security breaches and vulnerabilities, it’s important to remain mindful of ethical boundaries. Projects should focus on understanding root causes and proposing meaningful remediations—not on creating harmful or dangerous outcomes. If you are unsure whether your approach aligns with ethical guidelines, please consult with me before proceeding.
+
+4. Resubmission Opportunity
+If you feel that your current submission does not fully meet these guidelines, I am happy to offer an opportunity for revision and resubmission before the final deadline of April 15, 2359. Please reach out to me if you need clarification or support in revising your project.
+
+5. Support and Resources
+To assist you in preparing your submission:
+
+Review NTU's guidelines on proper citation practices and ethical considerations in research. https://www.ntu.edu.sg/research/ntu-research-integrity-policy
+Feel free to reach out during office hours or via email if you have questions about your approach or need feedback on your draft submission.
+Thank you for your attention to these guidelines! I am excited to see the creative and thoughtful projects that each of you will produce as part of this course.
