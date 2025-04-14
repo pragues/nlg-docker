@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   spark-master:
     image: bitnami/spark:3.3
@@ -5,8 +7,8 @@ services:
     environment:
       - SPARK_MODE=master
     ports:
-      - "7077:7077"   # Spark master RPC
-      - "8080:8080"   # Spark master UI
+      - "7077:7077"
+      - "8080:8080"
     volumes:
       - ./data:/data
 
@@ -19,7 +21,7 @@ services:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
     ports:
-      - "8081:8081"   # Spark worker UI
+      - "8081:8081"
     volumes:
       - ./data:/data
 
@@ -28,7 +30,7 @@ services:
     container_name: spark-jupyter
     hostname: spark-jupyter
     ports:
-      - "8888:8888"   # Jupyter Notebook
+      - "8888:8888"
     volumes:
       - ./notebooks:/home/jovyan/work
       - ./data:/data
@@ -36,3 +38,13 @@ services:
       - PYSPARK_PYTHON=python
       - PYSPARK_DRIVER_PYTHON=jupyter
       - PYSPARK_DRIVER_PYTHON_OPTS=notebook --ip=0.0.0.0 --no-browser --allow-root
+
+  streamlit:
+    build: ./frontend
+    container_name: streamlit-ui
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: streamlit run app.py --server.port=8501 --server.enableCORS=false

@@ -1,0 +1,5 @@
+nltk
+networkx
+streamlit
+PyPDF2
+scipy

@@ -110,21 +110,37 @@ for idx, tok in enumerate(tokens):
 
 chosen = set(k for k, _ in top_keywords)
 
-# 根据位置把相邻的选中词合并
+# # 根据位置把相邻的选中词合并
+# phrases = []
+# skip = set()
+# for tok in tokens:
+#     if tok in skip or tok not in chosen:
+#         continue
+#     pos_list = positions[tok]
+#     for pos in pos_list:
+#         phrase = [tok]
+#         nxt = pos + 1
+#         while nxt < len(tokens) and tokens[nxt] in chosen:
+#             phrase.append(tokens[nxt])
+#             skip.add(tokens[nxt])
+#             nxt += 1
+#         phrases.append(" ".join(phrase))
+
+# 重建多词关键词短语（按原文顺序、避免重复）
+
+index_keywords = [(i, tok) for i, tok in enumerate(tokens) if tok in chosen]
+index_keywords.sort()  # 按位置排序
+
 phrases = []
-skip = set()
-for tok in tokens:
-    if tok in skip or tok not in chosen:
-        continue
-    pos_list = positions[tok]
-    for pos in pos_list:
-        phrase = [tok]
-        nxt = pos + 1
-        while nxt < len(tokens) and tokens[nxt] in chosen:
-            phrase.append(tokens[nxt])
-            skip.add(tokens[nxt])
-            nxt += 1
-        phrases.append(" ".join(phrase))
+i = 0
+while i < len(index_keywords):
+    curr_phrase = [index_keywords[i][1]]
+    j = i + 1
+    while j < len(index_keywords) and index_keywords[j][0] == index_keywords[j-1][0] + 1:
+        curr_phrase.append(index_keywords[j][1])
+        j += 1
+    phrases.append(" ".join(curr_phrase))
+    i = j
 
 print("== Top keywords ==")
 for p in phrases[:TOP_N]:
