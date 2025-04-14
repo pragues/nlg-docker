@@ -1,6 +1,6 @@
 # TextRank Keyword Extractor – Cloud Computing Project
 
-本项目是一个基于 PySpark + Streamlit + Docker 的关键词提取平台，成功实现了经典论文 TextRank 所提出的无监督关键词提取算法。支持用户上传 .pdf、.txt 文件，或者直接输入文本来进行关键词分析。后端采用分布式 PySpark 处理，确保高效性能；前端则是交互式的 Streamlit 应用，提供便捷的用户操作体验。
+本项目基于 PySpark + Streamlit + Docker 的关键词提取平台，成功实现了经典论文 TextRank 所提出的无监督关键词提取算法。支持用户上传 .pdf、.txt 文件，或者直接输入文本来进行关键词分析。后端采用分布式 PySpark 处理，确保高效性能；前端则是交互式的 Streamlit 应用，提供便捷的用户操作体验。
 
 ## 已实现功能
 
@@ -46,24 +46,15 @@ Run by:
 ```
 ./run.sh [build|start|restart|down|clean]
 ```
+After starting the service:
 
-
-确保你已安装 Docker & Docker Compose。
-
-```bash
-# 克隆项目后在项目根目录执行
-docker-compose up --build
-```
-
-启动成功后访问：
-
-| 服务 | 地址 |
+| Service | url |
 | ---- | ---- |
 | 📊 Streamlit | http://localhost:8501 |
 | 🧪 Jupyter | http://localhost:8888 |
 | 🖥 Spark UI | http://localhost:8080 |
 
-## 使用方式（前端）
+## How to use: 
 1. 打开 http://localhost:8501
 2. 上传 .pdf / .txt 文件或直接粘贴文本
 3. 点击 “🔍 Extract Keywords”
@@ -74,19 +65,19 @@ docker-compose up --build
 | 功能 | 状态 |
 | ---- | ---- |
 | Streamlit 关键词提取基本功能 | ✅ 已完成 |
-| PDF / TXT 支持 | ✅ 已完成 |
+| PDF / TXT /doc 支持 | ✅ 已完成 |
 | Jupyter + PySpark 本地调试 | ✅ 已完成 |
 | Docker 多服务部署 | ✅ 已完成 |
-| 💾 关键词导出为 CSV | 🔜 推荐添加 |
-| 🌈 添加关键词词云图 | 🔜 推荐添加 |
+| 💾 关键词导出为 CSV | ✅ 已完成 |
+| 🌈 添加关键词词云图 | ✅ 已完成 |
 | 🔗 接入 PySpark 后端服务 | 🔜 规划中（REST API 接 Spark） |
 | ☁️ 接入 HDFS 支持海量文本 | 🔜 可选目标 |
 | 🧠 替换为 KeyBERT / YAKE 等高级模型 | 🧪 未来可拓展 |
 
-## 参考资源
-- TextRank 原始论文：Mihalcea & Tarau, 2004
-- Streamlit 官方文档：https://docs.streamlit.io
-- Spark 中文站：https://spark.apachecn.org 
+## References
+- TextRank original paper：Mihalcea & Tarau, 2004 https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdfs
+- Streamlit documentation：https://docs.streamlit.io
+- Spark Chinese documentation：https://spark.apachecn.org 
 
 An keyword extranction example for the original paper:
 ![Keywords:](frontend/demo.png)
