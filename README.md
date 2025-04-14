@@ -42,6 +42,12 @@ nlg-docker/
 
 ## 启动方式
 
+Run by:
+```
+./run.sh [build|start|restart|down|clean]
+```
+
+
 确保你已安装 Docker & Docker Compose。
 
 ```bash
@@ -81,3 +87,6 @@ docker-compose up --build
 - TextRank 原始论文：Mihalcea & Tarau, 2004
 - Streamlit 官方文档：https://docs.streamlit.io
 - Spark 中文站：https://spark.apachecn.org 
+
+An keyword extranction example for the original paper:
+![Keywords:](frontend/demo.png)

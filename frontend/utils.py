@@ -5,6 +5,8 @@ from itertools import combinations
 import networkx as nx
 from PyPDF2 import PdfReader
 import nltk
+from docx import Document
+
 
 # 初次运行时需要下载 NLTK 数据
 nltk.download("punkt")
@@ -38,3 +40,7 @@ def extract_keywords_from_text(text, top_n=10, window=2):
 
     top_keywords = sorted(ranks.items(), key=lambda x: -x[1])[:top_n]
     return [kw for kw, _ in top_keywords]
+
+def extract_text_from_docx(uploaded_file):
+    doc = Document(uploaded_file)
+    return "\n".join([para.text for para in doc.paragraphs])

@@ -3,3 +3,7 @@ networkx
 streamlit
 PyPDF2
 scipy
+python-docx
+pandas
+matplotlib
+wordcloud
