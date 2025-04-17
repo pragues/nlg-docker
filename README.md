@@ -1,83 +1,85 @@
 # TextRank Keyword Extractor – Cloud Computing Project
 
-本项目基于 PySpark + Streamlit + Docker 的关键词提取平台，成功实现了经典论文 TextRank 所提出的无监督关键词提取算法。支持用户上传 .pdf、.txt 文件，或者直接输入文本来进行关键词分析。后端采用分布式 PySpark 处理，确保高效性能；前端则是交互式的 Streamlit 应用，提供便捷的用户操作体验。
+This project is a keyword extraction platform based on **PySpark + Streamlit + Docker**, implementing the unsupervised keyword extraction algorithm proposed in the classic TextRank paper. It supports user-uploaded `.pdf` and `.txt` files or direct text input for keyword analysis. The backend utilizes distributed PySpark processing for high performance, while the frontend is built with Streamlit for an interactive and user-friendly experience.
 
-## 已实现功能
+## Features Implemented
 
-### 技术架构
-- **Docker Compose 多容器部署**：实现了多服务的统一管理与部署。
-- **Spark Master + Worker**：进行分布式任务调度，提升处理效率。
-- **Jupyter Notebook**：方便调试 PySpark 算法，加快开发迭代。
-- **Streamlit Web App**：提供简洁直观的用户界面，便于操作。
-- **基于 TextRank 的关键词提取**：实现了经典的 TextRank 算法。
-- **基于共现窗口构建词图**：通过共现窗口生成词图，为关键词提取提供基础。
-- **使用 PageRank 算法评分关键词**：利用 PageRank 算法对关键词进行评分。
-- **支持多词短语合并**：能够识别并合并多词短语作为关键词。
-- **文本处理**：对输入文本进行预处理，保证算法的准确性。
-- **支持上传 .txt 和 .pdf 文件**：方便用户从本地文件中提取关键词。
-- **支持直接输入文本**：满足用户快速输入文本的需求。
-- **前端（Streamlit）**：
-  - **实时显示提取结果**：及时反馈关键词提取结果。
-  - **关键词输出支持手动查看**：方便用户对关键词进行查看和分析。
+### Tech Architecture
+- **Docker Compose Multi-Container Deployment**: Unified management and deployment of multiple services.
+- **Spark Master + Worker**: Distributed task scheduling for improved processing efficiency.
+- **Jupyter Notebook**: Facilitates debugging of PySpark algorithms and accelerates development iterations.
+- **Streamlit Web App**: Clean and intuitive user interface for easy interaction.
+- **TextRank-based Keyword Extraction**: Implementation of the classic TextRank algorithm.
+- **Co-occurrence Graph Construction**: Builds a word graph using a sliding window for co-occurrence.
+- **Keyword Scoring via PageRank**: Ranks keywords using the PageRank algorithm.
+- **Multi-word Phrase Merging**: Recognizes and merges multi-word expressions as keywords.
+- **Text Preprocessing**: Ensures algorithm accuracy through preprocessing steps.
+- **File Upload Support (.txt and .pdf)**: Allows users to extract keywords from local files.
+- **Direct Text Input Support**: Enables quick analysis via direct text input.
+- **Frontend (Streamlit)**:
+  - **Real-Time Keyword Display**: Immediate feedback of keyword extraction results.
+  - **Manual Review of Output Keywords**: Users can inspect and analyze keywords easily.
 
-## 项目结构
+## Project Structure
 
 ```
 nlg-docker/
-├── data/                  # 文本输入样本（挂载给前后端）
+├── data/                  # Sample input texts (mounted to frontend & backend)
 │   └── text_corpus.txt
-├── docker-compose.yml     # 管理所有服务
-├── frontend/              # Streamlit 前端服务
-│   ├── app.py             # 主应用入口
-│   ├── utils.py           # TextRank 核心逻辑
+├── docker-compose.yml     # Orchestrates all services
+├── frontend/              # Streamlit frontend service
+│   ├── app.py             # Main app entry
+│   ├── utils.py           # Core TextRank logic
 │   ├── Dockerfile
 │   └── requirements.txt
-├── jupyter/               # Jupyter + Spark 容器配置
+├── jupyter/               # Jupyter + Spark container config
 │   ├── Dockerfile
 │   └── requirements.txt
-├── notebooks/             # PySpark 原型代码
+├── notebooks/             # PySpark prototype scripts
 │   └── textrank_demo.py
-└── README.md              # 当前文档
+└── README.md              # This document
 ```
 
-## 启动方式
+## Startup Instructions
 
-Run by:
+Run the project with:
 ```
 ./run.sh [build|start|restart|down|clean]
 ```
-After starting the service:
 
-| Service | url |
+Once started, services will be available at:
+
+| Service | URL |
 | ---- | ---- |
 | 📊 Streamlit | http://localhost:8501 |
 | 🧪 Jupyter | http://localhost:8888 |
 | 🖥 Spark UI | http://localhost:8080 |
 
-## How to use: 
-1. 打开 http://localhost:8501
-2. 上传 .pdf / .txt 文件或直接粘贴文本
-3. 点击 “🔍 Extract Keywords”
-4. 查看关键词结果
+## How to Use
+1. Visit http://localhost:8501  
+2. Upload a `.pdf` or `.txt` file, or paste your text directly  
+3. Click “🔍 Extract Keywords”  
+4. View the extracted keyword results  
 
-## TODO / 下一步计划
+## TODO / Roadmap
 
-| 功能 | 状态 |
+| Feature | Status |
 | ---- | ---- |
-| Streamlit 关键词提取基本功能 | ✅ 已完成 |
-| PDF / TXT /doc 支持 | ✅ 已完成 |
-| Jupyter + PySpark 本地调试 | ✅ 已完成 |
-| Docker 多服务部署 | ✅ 已完成 |
-| 💾 关键词导出为 CSV | ✅ 已完成 |
-| 🌈 添加关键词词云图 | ✅ 已完成 |
-| 🔗 接入 PySpark 后端服务 | 🔜 规划中（REST API 接 Spark） |
-| ☁️ 接入 HDFS 支持海量文本 | 🔜 可选目标 |
-| 🧠 替换为 KeyBERT / YAKE 等高级模型 | 🧪 未来可拓展 |
+| Basic keyword extraction via Streamlit | ✅ Completed |
+| Support for PDF / TXT / DOC files | ✅ Completed |
+| Local debugging with Jupyter + PySpark | ✅ Completed |
+| Multi-service deployment via Docker | ✅ Completed |
+| 💾 Export keywords to CSV | ✅ Completed |
+| 🌈 Add keyword word cloud | ✅ Completed |
+| 🔗 Connect PySpark as backend service | 🔜 In planning (REST API to Spark) |
+| ☁️ Add HDFS support for large-scale texts | 🔜 Optional goal |
+| 🧠 Replace with KeyBERT / YAKE or advanced models | 🧪 Future extension |
 
 ## References
-- TextRank original paper：Mihalcea & Tarau, 2004 https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdfs
-- Streamlit documentation：https://docs.streamlit.io
-- Spark Chinese documentation：https://spark.apachecn.org 
+- Original TextRank paper: Mihalcea & Tarau, 2004 [PDF](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdfs)  
+- Streamlit Documentation: https://docs.streamlit.io  
+- Spark Chinese Docs: https://spark.apachecn.org  
 
-An keyword extranction example for the original paper:
+**Example Output from the Original Paper:**
+
 ![Keywords:](frontend/demo.png)
