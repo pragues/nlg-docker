@@ -1,6 +1,6 @@
 # TextRank Keyword Extractor – Cloud Computing Project
 
-This project is a keyword extraction platform based on **PySpark + Streamlit + Docker**, implementing the unsupervised keyword extraction algorithm proposed in the classic TextRank paper. It supports user-uploaded `.pdf` and `.txt` files or direct text input for keyword analysis. The backend utilizes distributed PySpark processing for high performance, while the frontend is built with Streamlit for an interactive and user-friendly experience.
+This project is a keyword extraction platform based on **PySpark + Streamlit + Docker**, implementing the unsupervised keyword extraction algorithm proposed in the classic TextRank paper. It supports user-uploaded `.pdf`, `.docx` and `.txt` files or direct text input for keyword analysis. The backend utilizes distributed PySpark processing for high performance, while the frontend is built with Streamlit.
 
 ## Features Implemented
 
@@ -37,7 +37,7 @@ nlg-docker/
 │   └── requirements.txt
 ├── notebooks/             # PySpark prototype scripts
 │   └── textrank_demo.py
-└── README.md              # This document
+└── README.md
 ```
 
 ## Startup Instructions
