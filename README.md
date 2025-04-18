@@ -14,7 +14,7 @@ This project is a keyword extraction platform based on **PySpark + Streamlit + D
 - **Keyword Scoring via PageRank**: Ranks keywords using the PageRank algorithm.
 - **Multi-word Phrase Merging**: Recognizes and merges multi-word expressions as keywords.
 - **Text Preprocessing**: Ensures algorithm accuracy through preprocessing steps.
-- **File Upload Support (.txt and .pdf)**: Allows users to extract keywords from local files.
+- **File Upload Support (.txt, .docx and .pdf)**: Allows users to extract keywords from local files.
 - **Direct Text Input Support**: Enables quick analysis via direct text input.
 - **Frontend (Streamlit)**:
   - **Real-Time Keyword Display**: Immediate feedback of keyword extraction results.
